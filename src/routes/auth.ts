@@ -5,3 +5,5 @@ const router = Router()
 
 //login
 router.post('/login',AuthController.login)
+
+export default router

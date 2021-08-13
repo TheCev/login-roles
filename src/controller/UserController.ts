@@ -45,6 +45,7 @@ export class UserController {
 
         const userRepository = getRepository(User)
         try{
+            user.hashPassword()
             await userRepository.save(user);
         }
         catch(e){
@@ -89,7 +90,7 @@ export class UserController {
     };
 
     static deleteUser = async (req:Request, res:Response) => {
-        const { id } req.params;
+        const { id } = req.params;
         const userRepository = getRepository(User)
         let user:User;
 

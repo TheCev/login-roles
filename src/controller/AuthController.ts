@@ -21,5 +21,13 @@ class AuthController {
 			return res.status(400).json({message: 'Username or Password incorrect'})
 		}
 
+		if(!user.checkPassword(password)){
+			return res.status(400).json({message: 'Username or password are incorrect!'})
+		}
+
+		return res.send(user)
+
 	}
 }
+
+export default AuthController
